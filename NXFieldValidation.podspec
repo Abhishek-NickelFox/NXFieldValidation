@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Abhishek Thapliyal" => "abhishek@nickelfox.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "http://EXAMPLE/NXFieldValidation.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/AbhishekNFX/NXFieldValidation.git", :tag => "#{s.version}" }
   s.source_files  = "NXFieldValidation", "NXFieldValidation/**/*.{swift}"
   s.requires_arc = true
 
