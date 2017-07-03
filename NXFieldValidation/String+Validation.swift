@@ -18,7 +18,7 @@ private let pinCodeRegx = "\\d{6}"
 
 extension String {
     
-    var isAlphabetic: Bool {
+    public var isAlphabetic: Bool {
         if !isEmpty {
             let alphabeticTest = NSPredicate(format: "SELF MATCHES %@", alphabeticRegx)
             return alphabeticTest.evaluate(with:self)
@@ -26,7 +26,7 @@ extension String {
         return false
     }
     
-    var isNumeric: Bool {
+    public var isNumeric: Bool {
         if !isEmpty {
             let numericTest = NSPredicate(format: "SELF MATCHES %@", numericRegx)
             return numericTest.evaluate(with: self)
@@ -34,7 +34,7 @@ extension String {
         return false
     }
     
-    var isAlphaNumeric: Bool {
+    public var isAlphaNumeric: Bool {
         if !isEmpty {
             let alphaNumericTest = NSPredicate(format: "SELF MATCHES %@", alphaNumericRegx)
             return alphaNumericTest.evaluate(with: self)
@@ -42,7 +42,7 @@ extension String {
         return false
     }
 
-    var isValidEmail: Bool {
+    public var isValidEmail: Bool {
         if !isEmpty {
             let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegx)
             return emailTest.evaluate(with: self)
@@ -50,7 +50,7 @@ extension String {
         return false
     }
     
-    var isValidURL: Bool {
+    public var isValidURL: Bool {
         if !isEmpty {
             let url: URL = URL(fileURLWithPath: self)
             if let _ = url.scheme, let _ = url.host {
@@ -60,7 +60,7 @@ extension String {
         return true
     }
 
-    var isValidPassword: Bool {
+    public var isValidPassword: Bool {
         if !isEmpty {
             let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegx)
             return passwordTest.evaluate(with: self)
@@ -68,7 +68,7 @@ extension String {
         return false
     }
     
-    var isValidPhone: Bool {
+    public var isValidPhone: Bool {
         if !isEmpty {
             let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegx)
             return phoneTest.evaluate(with: self)
@@ -76,7 +76,7 @@ extension String {
         return false
     }
     
-    var isValidPinCode: Bool {
+    public var isValidPinCode: Bool {
         if !isEmpty {
             let pinCodeTest = NSPredicate(format: "SELF MATCHES %@", pinCodeRegx)
             return pinCodeTest.evaluate(with: self)
@@ -84,7 +84,7 @@ extension String {
         return false
     }
     
-    var isValidCreditCardExpirationDate: Bool {
+    public var isValidCreditCardExpirationDate: Bool {
         if self.characters.count < 4 {
             return false
         }
@@ -111,7 +111,7 @@ extension String {
         return true
     }
     
-    var isValidCreditCardNumber: Bool {
+    public var isValidCreditCardNumber: Bool {
         if digitString.characters.count < 12 || digitString.characters.count > 20 {
             return false
         }
@@ -136,7 +136,7 @@ extension String {
         return false
     }
     
-    var isValidCardVerificationCode: Bool {
+    public var isValidCardVerificationCode: Bool {
         var digitString = self.digitString
         let digitStringLength = digitString.characters.count
         if (self.characters.count == digitStringLength) && (digitStringLength == 3 || digitStringLength == 4) {
@@ -144,7 +144,8 @@ extension String {
         }
         return false
     }
-    var digitString: String {
+    
+    public var digitString: String {
         return components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
     }
 }

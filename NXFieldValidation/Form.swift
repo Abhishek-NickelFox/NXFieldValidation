@@ -9,17 +9,21 @@
 import Foundation
 import UIKit
 
-protocol ValidatableInput {
+public protocol ValidatableInput {
     var isOptional: Bool { get }
     var text: String? { get }
     var validator: ValidationProtocol? { get }
 }
 
-class Form  {
+public class Form  {
+    
+    public init() {
+        
+    }
     
     var inputs: [ValidatableInput] = []
     
-    func validate() -> (Bool, [String]) {
+    public func validate() -> (Bool, [String]) {
         var isValid = true
         var errors = [String]()
         for input in inputs {
@@ -40,7 +44,7 @@ class Form  {
         return (isValid, errors)
     }
     
-    func canValidate( text: String?, validator: ValidationProtocol?) -> (Bool, String?) {
+    public func canValidate( text: String?, validator: ValidationProtocol?) -> (Bool, String?) {
         if let text = text, let validator = validator {
             return validator.validate(text)
         }

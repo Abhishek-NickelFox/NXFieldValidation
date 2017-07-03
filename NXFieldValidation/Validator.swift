@@ -23,12 +23,15 @@ private let ccExpiryError = "Credit Card Expired"
 private let ccNumberError = "Invalid Credit Card Number"
 private let ccVerificationError = "Invalid Credit Card Verification Number"
 
-protocol ValidationProtocol {
+public protocol ValidationProtocol {
     func validate(_ value: String) -> (Bool, String?)
 }
 
-class EmptyValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class EmptyValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if !value.isEmpty {
             return (true, nil)
         }
@@ -36,8 +39,11 @@ class EmptyValidator: ValidationProtocol {
     }
 }
 
-class FullNameValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class FullNameValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if !value.isAlphabetic {
             return (false, nameRequiredError)
         }
@@ -49,16 +55,23 @@ class FullNameValidator: ValidationProtocol {
     }
 }
 
-class FirstNameValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class FirstNameValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isAlphabetic {
            return (true, nil)
         }
             return (false, nameRequiredError)
     }
 }
-class LastNameValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+
+public class LastNameValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isAlphabetic {
             return (true, nil)
         }
@@ -66,8 +79,11 @@ class LastNameValidator: ValidationProtocol {
     }
 }
 
-class EmailValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class EmailValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidEmail {
             return (true, nil)
         }
@@ -75,8 +91,11 @@ class EmailValidator: ValidationProtocol {
     }
 }
 
-class PhoneValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class PhoneValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidPhone {
             return (true, nil)
         }
@@ -84,8 +103,11 @@ class PhoneValidator: ValidationProtocol {
     }
 }
 
-class AlphaNumericValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class AlphaNumericValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isAlphaNumeric {
             return (true, nil)
         }
@@ -93,8 +115,11 @@ class AlphaNumericValidator: ValidationProtocol {
     }
 }
 
-class UrlValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class UrlValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidURL {
             return (true, nil)
         }
@@ -102,8 +127,11 @@ class UrlValidator: ValidationProtocol {
     }
 }
 
-class PasswordValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class PasswordValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidPassword {
             return (true, nil)
         }
@@ -111,8 +139,11 @@ class PasswordValidator: ValidationProtocol {
     }
 }
 
-class PinCodeValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class PinCodeValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidPinCode {
             return (true, nil)
         }
@@ -120,8 +151,11 @@ class PinCodeValidator: ValidationProtocol {
     }
 }
 
-class CCExpiryDateValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class CCExpiryDateValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidCreditCardExpirationDate {
             return (true, nil)
         }
@@ -129,8 +163,11 @@ class CCExpiryDateValidator: ValidationProtocol {
     }
 }
 
-class CCNumberValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class CCNumberValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidCreditCardNumber {
             return (true, nil)
         }
@@ -138,8 +175,11 @@ class CCNumberValidator: ValidationProtocol {
     }
 }
 
-class CCVerificationCodeValidator: ValidationProtocol {
-    func validate(_ value: String) -> (Bool, String?) {
+public class CCVerificationCodeValidator: ValidationProtocol {
+    
+    public init() { }
+    
+    public func validate(_ value: String) -> (Bool, String?) {
         if value.isValidCardVerificationCode {
             return (true, nil)
         }

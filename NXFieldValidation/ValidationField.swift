@@ -13,12 +13,12 @@ private var textFieldDidBegainEditingNotification = "UITextFieldTextDidBeginEdit
 private var textFieldDidChangeNotification = "UITextFieldTextDidChangeNotification"
 private var textFieldTextDidEndEditingNotification = "UITextFieldTextDidEndEditingNotification"
 
-class ValidationField: UITextField, ValidatableInput {
-    var error: String?
-    var validator: ValidationProtocol?
-    var isOptional = false
+public class ValidationField: UITextField, ValidatableInput {
+    public var error: String?
+    public var validator: ValidationProtocol?
+    public var isOptional = false
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
@@ -38,7 +38,7 @@ class ValidationField: UITextField, ValidatableInput {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func validateField() -> (Bool, String?){
+    public func validateField() -> (Bool, String?){
         if validator != nil {
             if let text = self.text {
                 return self.validator?.validate(text) ?? (true, nil)
@@ -47,7 +47,7 @@ class ValidationField: UITextField, ValidatableInput {
         return (false, nil)
     }
     
-    func validateInputSilently(){
+    public func validateInputSilently(){
         let (isValid, error) = validateField()
         self.error = error
         decorate(isValid)
@@ -55,7 +55,7 @@ class ValidationField: UITextField, ValidatableInput {
     
     //MARK: Helper Methods
     
-    func decorate(_ isValid: Bool?) {
+    public func decorate(_ isValid: Bool?) {
         self.layer.borderWidth = 0.5
         guard let isValid = isValid else { self.layer.borderColor = UIColor.clear.cgColor; return }
         if isValid {
