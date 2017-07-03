@@ -21,7 +21,7 @@ public class Form  {
         
     }
     
-    var inputs: [ValidatableInput] = []
+    public var inputs: [ValidatableInput] = []
     
     public func validate() -> (Bool, [String]) {
         var isValid = true
